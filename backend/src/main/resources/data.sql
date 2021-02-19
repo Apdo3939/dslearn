@@ -35,3 +35,7 @@ INSERT INTO tb_resource (title, description, position, img_uri, type, external_l
 INSERT INTO tb_resource (title, description, position, img_uri, type, external_link, offer_id) VALUES ('Forum', 'Give your comments', 1, 'D:\BootCamp03\img\html.png', 2, 'https://github.com', 1);
 INSERT INTO tb_resource (title, description, position, img_uri, type, external_link, offer_id) VALUES ('Lives', 'Choose your profile', 1, 'D:\BootCamp03\img\html.png', 3, 'https://github.com', 1);
 
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, preriquisite_id) VALUES ('Chapter one', 'Introduction', 1, 'D:\BootCamp03\img\html.png', 1, null);
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, preriquisite_id) VALUES ('Chapter two', 'Begin code', 2, 'D:\BootCamp03\img\html.png', 1, 1);
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, preriquisite_id) VALUES ('Chapter three', 'Implements code', 3, 'D:\BootCamp03\img\html.png', 1, 2);
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, preriquisite_id) VALUES ('Chapter four', 'Deployment project', 4, 'D:\BootCamp03\img\html.png', 1, 3);
