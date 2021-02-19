@@ -30,3 +30,8 @@ INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Ful
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Material aceito', TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', false, 'exemplo de rota', 1);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Material aceito', TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', false, 'exemplo de rota', 2);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Material aceito', TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', false, 'exemplo de rota', 3);
+
+INSERT INTO tb_resource (title, description, position, img_uri, type, external_link, offer_id) VALUES ('HTML route', 'lesson 1', 1, 'D:\BootCamp03\img\html.png', 1, 'https://github.com', 1);
+INSERT INTO tb_resource (title, description, position, img_uri, type, external_link, offer_id) VALUES ('Forum', 'Give your comments', 1, 'D:\BootCamp03\img\html.png', 2, 'https://github.com', 1);
+INSERT INTO tb_resource (title, description, position, img_uri, type, external_link, offer_id) VALUES ('Lives', 'Choose your profile', 1, 'D:\BootCamp03\img\html.png', 3, 'https://github.com', 1);
+
