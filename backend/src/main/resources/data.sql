@@ -26,3 +26,7 @@ INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Ful
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Basic', TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', TIMESTAMP WITH TIME ZONE '2021-01-02T03:00:00Z', 3);
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Premium', TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', TIMESTAMP WITH TIME ZONE '2021-01-02T03:00:00Z', 3);
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Full', TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', TIMESTAMP WITH TIME ZONE '2021-01-02T03:00:00Z', 3);
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Material aceito', TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', false, 'exemplo de rota', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Material aceito', TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', false, 'exemplo de rota', 2);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Material aceito', TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', false, 'exemplo de rota', 3);

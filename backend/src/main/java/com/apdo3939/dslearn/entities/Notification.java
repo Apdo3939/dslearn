@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_offer")
-public class Offer implements Serializable {
+@Table(name = "tb_notification")
+public class Notification implements Serializable {
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -21,29 +21,29 @@ public class Offer implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String edition;
-	private Instant startMoment;
-	private Instant endMoment;
+	
+	private String text;
+	private Instant moment;
+	private Boolean read;
+	private String route;
 	
 	@ManyToOne
-	@JoinColumn(name = "course_id")
-	private Course course;
+	@JoinColumn(name = "user_id")
+	private User user;
 	
-	
-	public Offer() {
+	public Notification() {
 		
 	}
-	
 
-	public Offer(Long id, String edition, Instant startMoment, Instant endMoment, Course course) {
+	public Notification(Long id, String text, Instant moment, Boolean read, String route, User user) {
 		super();
 		this.id = id;
-		this.edition = edition;
-		this.startMoment = startMoment;
-		this.endMoment = endMoment;
-		this.course = course;
+		this.text = text;
+		this.moment = moment;
+		this.read = read;
+		this.route = route;
+		this.user = user;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -53,7 +53,6 @@ public class Offer implements Serializable {
 		return result;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -62,7 +61,7 @@ public class Offer implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Offer other = (Offer) obj;
+		Notification other = (Notification) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -70,7 +69,6 @@ public class Offer implements Serializable {
 			return false;
 		return true;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -80,36 +78,44 @@ public class Offer implements Serializable {
 		this.id = id;
 	}
 
-	public String getEdition() {
-		return edition;
+	public String getText() {
+		return text;
 	}
 
-	public void setEdition(String edition) {
-		this.edition = edition;
+	public void setText(String text) {
+		this.text = text;
 	}
 
-	public Instant getStartMoment() {
-		return startMoment;
+	public Instant getMoment() {
+		return moment;
 	}
 
-	public void setStartMoment(Instant startMoment) {
-		this.startMoment = startMoment;
+	public void setMoment(Instant moment) {
+		this.moment = moment;
 	}
 
-	public Instant getEndMoment() {
-		return endMoment;
+	public Boolean getRead() {
+		return read;
 	}
 
-	public void setEndMoment(Instant endMoment) {
-		this.endMoment = endMoment;
+	public void setRead(Boolean read) {
+		this.read = read;
 	}
 
-	public Course getCourse() {
-		return course;
+	public String getRoute() {
+		return route;
 	}
 
-	public void setCourse(Course course) {
-		this.course = course;
+	public void setRoute(String route) {
+		this.route = route;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }
