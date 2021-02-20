@@ -39,3 +39,5 @@ INSERT INTO tb_section (title, description, position, img_uri, resource_id, prer
 INSERT INTO tb_section (title, description, position, img_uri, resource_id, preriquisite_id) VALUES ('Chapter two', 'Begin code', 2, 'D:\BootCamp03\img\html.png', 1, 1);
 INSERT INTO tb_section (title, description, position, img_uri, resource_id, preriquisite_id) VALUES ('Chapter three', 'Implements code', 3, 'D:\BootCamp03\img\html.png', 1, 2);
 INSERT INTO tb_section (title, description, position, img_uri, resource_id, preriquisite_id) VALUES ('Chapter four', 'Deployment project', 4, 'D:\BootCamp03\img\html.png', 1, 3);
+
+INSERT INTO tb_enrollment (enroll_moment, refund_moment, avaliable, only_update, user_id, offer_id) VALUES (TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', null, true, false, 1, 9);
