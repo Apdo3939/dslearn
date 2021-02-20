@@ -2,10 +2,13 @@ package com.apdo3939.dslearn.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.apdo3939.dslearn.entities.pk.EnrollmentPK;
@@ -27,6 +30,9 @@ public class Enrollment implements Serializable {
 
 	private boolean avaliable;
 	private boolean onlyUpdate;
+
+	@ManyToMany(mappedBy = "enrollmentsDone")
+	private Set<Lesson> lessonsDone = new HashSet<>();
 
 	public Enrollment() {
 
@@ -114,6 +120,10 @@ public class Enrollment implements Serializable {
 
 	public void setOnlyUpdate(boolean onlyUpdate) {
 		this.onlyUpdate = onlyUpdate;
+	}
+
+	public Set<Lesson> getLessonsDone() {
+		return lessonsDone;
 	}
 
 }

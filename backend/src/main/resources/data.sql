@@ -40,4 +40,19 @@ INSERT INTO tb_section (title, description, position, img_uri, resource_id, prer
 INSERT INTO tb_section (title, description, position, img_uri, resource_id, preriquisite_id) VALUES ('Chapter three', 'Implements code', 3, 'D:\BootCamp03\img\html.png', 1, 2);
 INSERT INTO tb_section (title, description, position, img_uri, resource_id, preriquisite_id) VALUES ('Chapter four', 'Deployment project', 4, 'D:\BootCamp03\img\html.png', 1, 3);
 
-INSERT INTO tb_enrollment (enroll_moment, refund_moment, avaliable, only_update, user_id, offer_id) VALUES (TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', null, true, false, 1, 9);
+INSERT INTO tb_enrollment (enroll_moment, refund_moment, avaliable, only_update, user_id, offer_id) VALUES (TIMESTAMP WITH TIME ZONE '2019-01-02T03:00:00Z', null, true, false, 1, 1);
+
+INSERT INTO tb_lesson(title, position, section_id) VALUES ('Lesson 01 for chapter 1', 1, 1);
+INSERT INTO tb_content(id, text_content, video_uri) VALUES ( 1, 'Lesson 01 for chapter 1', 'https://www.youtube.com/watch?v=laC0fiI-IOM');
+
+INSERT INTO tb_lesson(title, position, section_id) VALUES ('Lesson 02 for chapter 1', 2, 1);
+INSERT INTO tb_content(id, text_content, video_uri) VALUES ( 2, 'Lesson 01 for chapter 1', 'https://www.youtube.com/watch?v=laC0fiI-IOM');
+
+INSERT INTO tb_lesson(title, position, section_id) VALUES ('Lesson 01 for chapter 1', 3, 1);
+INSERT INTO tb_content(id, text_content, video_uri) VALUES ( 3, 'Lesson 03 for chapter 1', 'https://www.youtube.com/watch?v=laC0fiI-IOM');
+
+INSERT INTO tb_lesson(title, position, section_id) VALUES ('Lesson 01 for chapter 1', 4, 1);
+INSERT INTO tb_task(id, description, question_count, approval_count, weight, due_date) VALUES ( 1, 'delivery 01 for chapter 1', 1, 1, 1.0, TIMESTAMP WITH TIME ZONE '2020-07-02T18:00:00Z');
+
+INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (1,1,1);
+INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (2,1,1);
