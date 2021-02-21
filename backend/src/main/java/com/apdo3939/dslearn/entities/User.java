@@ -22,23 +22,19 @@ import javax.persistence.Table;
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String name;
 	private String email;
 	private String password;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(
-			name = "tb_user_role",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "tb_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
-	
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<Notification> notifications = new ArrayList<>();
 
@@ -53,7 +49,7 @@ public class User implements Serializable {
 		this.email = email;
 		this.password = password;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -113,6 +109,10 @@ public class User implements Serializable {
 
 	public Set<Role> getRoles() {
 		return roles;
+	}
+
+	public List<Notification> getNotifications() {
+		return notifications;
 	}
 
 }

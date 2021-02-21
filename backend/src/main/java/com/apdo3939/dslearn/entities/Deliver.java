@@ -3,25 +3,52 @@ package com.apdo3939.dslearn.entities;
 import java.io.Serializable;
 import java.time.Instant;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import com.apdo3939.dslearn.entities.enums.DeliverStatus;
 
+@Entity
+@Table(name = "tb_deliver")
 public class Deliver implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	private String uri;
+
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant moment;
+
 	private DeliverStatus status;
 	private String feedback;
 	private Integer correctCount;
-	
+
+	/*** mapping returns in class, lesson and Enrollment(OneToMany) ***/
+	@ManyToOne
+	@JoinColumns({ @JoinColumn(name = "offer_id"), @JoinColumn(name = "user_id") })
+	private Enrollment enrollment;
+
+	@ManyToOne
+	@JoinColumn(name = "lesson_id")
+	private Lesson lesson;
+
 	public Deliver() {
-		
+
 	}
 
-	public Deliver(Long id, String uri, Instant moment, DeliverStatus status, String feedback, Integer correctCount) {
+	public Deliver(Long id, String uri, Instant moment, DeliverStatus status, String feedback, Integer correctCount,
+			Enrollment enrollment, Lesson lesson) {
 		super();
 		this.id = id;
 		this.uri = uri;
@@ -29,6 +56,8 @@ public class Deliver implements Serializable {
 		this.status = status;
 		this.feedback = feedback;
 		this.correctCount = correctCount;
+		this.enrollment = enrollment;
+		this.lesson = lesson;
 	}
 
 	@Override
@@ -107,5 +136,21 @@ public class Deliver implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
+	public Enrollment getEnrollment() {
+		return enrollment;
+	}
+
+	public void setEnrollment(Enrollment enrollment) {
+		this.enrollment = enrollment;
+	}
+
+	public Lesson getLesson() {
+		return lesson;
+	}
+
+	public void setLesson(Lesson lesson) {
+		this.lesson = lesson;
+	}
+
 }
