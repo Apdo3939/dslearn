@@ -124,14 +124,23 @@ public class User implements UserDetails, Serializable {
 	public List<Notification> getNotifications() {
 		return notifications;
 	}
+	
+	public boolean hasRole(String roleName) {
+		for(Role role: roles) {
+			if(role.getAuthority().equals(roleName)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
+	//UserDetails
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getAuthority()))
 				.collect(Collectors.toList());
 	}
 
-	//UserDetails
 	@Override
 	public String getUsername() {
 		return email;
